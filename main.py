@@ -16,7 +16,7 @@ class BotDefinition:
       self.bot = bot
       self.room_id = room_id
       self.api_token = api_token
-      self.following_username = None
+      
 
 
 class MyBot(BaseBot):
@@ -25,10 +25,7 @@ class MyBot(BaseBot):
       self.bot = bot
       self.room_id = room_id
       self.api_token = api_token
-      self.following_username = None
-      super().__init__()
-      self.user_positions = {}
-      self.is_dancing = False
+      
     
     
 
@@ -58,8 +55,12 @@ class MyBot(BaseBot):
     
 
     async def run(self):
-       definitions = [BotDefinition(self, self.room_id, self.api_token)]
-       await __main__.main(definitions)
+      while True:  
+         try:
+           definitions = [BotDefinition(self, self.room_id, self.api_token)]
+           await __main__.main(definitions)
+         except Exception as e:
+           print(f"An exception occourred: {e}")
 
 keep_alive()
 if __name__ == "__main__":
