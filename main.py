@@ -62,7 +62,7 @@ class MyBot(BaseBot):
   async def on_start(self, session_metadata: SessionMetadata) -> None:
     print("[Start]")
     try:
-       await self.highrise.walk_to( Position(x=15.5, y=0.5, z=24.0, facing='FrontRight'))
+       await self.highrise.walk_to( Position(x=15.5, y=0.5, z=26.0, facing='FrontRight'))
 
 
 
